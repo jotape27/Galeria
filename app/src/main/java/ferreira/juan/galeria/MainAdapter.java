@@ -2,6 +2,7 @@ package ferreira.juan.galeria;
 
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -24,8 +25,11 @@ public class MainAdapter extends RecyclerView.Adapter {
    @NonNull
    @Override
    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-      return null;
+      LayoutInflater inflater = LayoutInflater.from(mainActivity);
+      View v = inflater.inflate(R.layout.list_item, parent, false); //Controi o item apartir do leyout definido
+      return new MeuViewHolder(v);
    }
+
 
    @Override
    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
@@ -45,7 +49,7 @@ public class MainAdapter extends RecyclerView.Adapter {
 
    @Override
    public int getItemCount() {
-      return 0;
+      return photos.size();
    }
 
 
